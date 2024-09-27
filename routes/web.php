@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MascotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('mascotas.index');
-});
+    Route::get('/', [MascotaController::class, 'index'])->name('mascotas.index');
+
+    // Rutas de recursos para las mascotas
+    Route::resource('mascotas', MascotaController::class);
